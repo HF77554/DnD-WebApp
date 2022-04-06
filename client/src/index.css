@@ -3,3 +3,8 @@
   font-family: "Times New Roman", Times, serif;
 }
 
+.board_background{
+    width: 100%;
+    text-align: center;
+    background-color: #0666a3
+}

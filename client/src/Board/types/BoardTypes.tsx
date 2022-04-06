@@ -1,6 +1,7 @@
 import React from 'react'
 
 export interface mapSize {
-    width: number,
-    length: number
+    rows: number,
+    columns: number,
+    totalSquares: number
 }
