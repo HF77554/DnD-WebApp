@@ -8,6 +8,7 @@ type Props = {
 };
 
 const BoardGrid:React.FC<Props>  = ({ gridSize } ) => {
+  const containerWidth = (gridSize.rows*50)+10
   const [numberBoxes, numberBoxesTask] = useState<any>()
 
   useEffect(() => {
@@ -18,7 +19,7 @@ const BoardGrid:React.FC<Props>  = ({ gridSize } ) => {
   return (
     <>
     {numberBoxes && 
-      <div className='grid-container' style={{ gridTemplateColumns: `repeat(${gridSize.rows}, 52px)` }}>
+      <div className='grid-container' style={{ width:`${containerWidth}px` , gridTemplateColumns: `repeat(${gridSize.rows}, 50px)` }}>
         {numberBoxes.map((n: number) => <GridBox key={n} gridNo={n}/>)}
       </div>
     }
