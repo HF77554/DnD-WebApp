@@ -1,8 +1,15 @@
 import React from 'react'
+import './grid.css'
 
-const GridBox = () => {
+type Props = {
+  gridNo: number;
+};
+
+const GridBox:React.FC<Props> = ({gridNo}) => {
   return (
-    <div>GridBox</div>
+    <div className='grid-box' onClick={() => console.log(gridNo)}>
+      {gridNo}
+    </div>
   )
 }
 

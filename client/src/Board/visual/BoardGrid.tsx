@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react'
-import {mapSize} from '../types/BoardTypes'
+import GridBox from './GridBox';
+import './grid.css'
 
 //gotta figure out how to handle when something does not yet exist but will be later
 type Props = {
@@ -7,19 +8,21 @@ type Props = {
 };
 
 const BoardGrid:React.FC<Props>  = ({ gridSize } ) => {
-  const [numberBoxes, numberBoxesTask] = useState([1,2,3,4,5,6,7,8,9])
+  const [numberBoxes, numberBoxesTask] = useState<any>()
 
   useEffect(() => {
-    const fvdf = Array(gridSize.totalSquares).keys()
-    console.log(fvdf)
-    const numBox = [...Array(gridSize.totalSquares)]
+    const numBox = Array.from(Array(gridSize.totalSquares).keys())
     numberBoxesTask(numBox)
   }, [gridSize]);
 
   return (
-    <div className='grid-container'>
-      {numberBoxes.map((n: number) => console.log(n))}
-    </div>
+    <>
+    {numberBoxes && 
+      <div className='grid-container' style={{ gridTemplateColumns: `repeat(${gridSize.rows}, 52px)` }}>
+        {numberBoxes.map((n: number) => <GridBox key={n} gridNo={n}/>)}
+      </div>
+    }
+    </>
   )
 }
 
