@@ -4,6 +4,7 @@
     width: 50%;
     background-color: #a4b12b;
     padding: 10px;
+    overflow: scroll;
 }
 
 .grid-box{
